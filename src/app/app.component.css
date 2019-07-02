@@ -9,7 +9,7 @@
 #toolbarFirst {
   display: grid;
   grid-template-areas:
-    "home e e e right";
+    "home right";
 }
 
 #toolbarContainer {
@@ -23,8 +23,6 @@
 }
 
 #rightButtons {
-  display: grid;
-  grid-area: right;
-  justify-items: end;
-  grid-auto-flow: column;
+  display: flex;
+  justify-content: flex-end;
 }

@@ -12,7 +12,9 @@ export class AppComponent {
     iconRegistry.addSvgIcon(
       'shoppingCart', domSanitizer.bypassSecurityTrustResourceUrl('../assets/baseline-shopping_cart-24px.svg'));
     iconRegistry.addSvgIcon(
-      'shoppingCart', domSanitizer.bypassSecurityTrustResourceUrl('../assets/baseline-shopping_cart-24px.svg'));
+      'recipeMenu', domSanitizer.bypassSecurityTrustResourceUrl('../assets/baseline-restaurant_menu-24px.svg'));
+    iconRegistry.addSvgIcon(
+      'blender', domSanitizer.bypassSecurityTrustResourceUrl('../assets/blender.svg'));
   }
   title = 'dhbwRezeptApp';
 }
