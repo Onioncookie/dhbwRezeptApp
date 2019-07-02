@@ -1,0 +1,30 @@
+.mainPageContainer {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-areas:
+  "h"
+  "b";
+}
+#toolbarFirst {
+  display: grid;
+  grid-template-areas:
+    "home e e e right";
+}
+
+#toolbarContainer {
+  display: grid;
+  height: max-content;
+  width: 100%;
+}
+
+#leftButtons {
+  grid-area: home;
+}
+
+#rightButtons {
+  display: grid;
+  grid-area: right;
+  justify-items: end;
+  grid-auto-flow: column;
+}
