@@ -11,6 +11,7 @@ import { RecipeCreateComponent } from './components/recipe-create/recipe-create.
 import { IngredientCreateComponent } from './components/ingredient-create/ingredient-create.component';
 import {MatButtonModule, MatIconModule, MatToolbarModule} from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import {DataServiceService} from './data-service.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     RecipeItemComponent,
     ShoppingCartComponent,
     RecipeCreateComponent,
-    IngredientCreateComponent
+    IngredientCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [DataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

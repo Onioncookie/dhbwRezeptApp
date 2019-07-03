@@ -3,7 +3,7 @@
     <mat-toolbar-row id="toolbarFirst">
       <div id="leftButtons">
         <button mat-button>
-          <mat-icon svgIcon="recipeMenu"></mat-icon>
+          <mat-icon svgIcon="recipeMenu" (click)="this.dataService.printCategoryList()"></mat-icon>
         </button>
       </div>
       <div id="rightButtons">
@@ -15,8 +15,9 @@
         </button>
       </div>
     </mat-toolbar-row>
-    <div class="mainPageMainContent"></div>
   </mat-toolbar>
+  <div class="mainPageMainContent">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
-<router-outlet></router-outlet>

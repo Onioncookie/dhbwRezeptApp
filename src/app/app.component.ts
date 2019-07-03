@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
+import {DataServiceService} from './data-service.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import {DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(iconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
+  constructor(iconRegistry: MatIconRegistry, domSanitizer: DomSanitizer, private dataService: DataServiceService) {
     iconRegistry.addSvgIcon(
       'shoppingCart', domSanitizer.bypassSecurityTrustResourceUrl('../assets/baseline-shopping_cart-24px.svg'));
     iconRegistry.addSvgIcon(

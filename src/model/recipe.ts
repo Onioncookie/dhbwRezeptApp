@@ -5,10 +5,9 @@ export class Recipe {
   pictureUrl: string;
   ingridientList: Ingridient[];
   description: string;
-  constructor(mName, mUrl, mIngridients: Ingridient[], mDescription) {
+  constructor(mName, mUrl, mDescription) {
     this.name = mName;
     this.pictureUrl = mUrl;
-    this.ingridientList = mIngridients;
     this.description = mDescription;
   }
 }
