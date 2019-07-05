@@ -14,6 +14,9 @@
   display: grid;
   grid-template-areas: "ing picture" "text text";
 }
+.mat-list-base .mat-list-item .mat-line {
+  overflow: visible;
+}
 
 
 .description {
@@ -24,10 +27,11 @@
 
 .ingridient {
   grid-area: ing;
+  min-width: min-content;
 }
 .amount {
   font-size: 2em !important;
-  margin-left: 50% !important;
+  margin-left: 10% !important;
 }
 
 #divider {

@@ -17,6 +17,7 @@ export class DataServiceService {
   testIngridient = new Ingridient('Eggs', 'Eggs and Egg products', 'pcs');
   testIngridient1 = new Ingridient('XXL Eggs', 'Eggs and Egg products', 'pcs');
   testIngridient2 = new Ingridient('Flour', 'Baked Goods', 'Gramm');
+  testIngridient3 = new Ingridient('Vokda', 'Alcoholic Beverages', 'mL');
   // Contains all Ingridients,sorted by their Category
   categoryList = new CategoryListData();
   // First import of all ingridients
@@ -29,21 +30,15 @@ export class DataServiceService {
   constructor() {
     // Initial sort for the categoryList, as the recipeListData is not sorted
     this.sortIngridientCategoryList();
-
-    // Predefined recipes
-    this.addRecipe(new Recipe('Pancakes',
-      'https://www.maxpixel.net/static/photo/1x/Syrup-Pancakes-Breakfast-Maple-Food-Sweet-2291908.jpg',
-      'In a large bowl, sift together the flour, baking powder, salt and sugar. Make a well in the center and pour in the milk,' +
-      ' egg and melted butter; mix until smooth.\n' +
-      'Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using approximately' +
-      ' 1/4 cup for each pancake. Brown on both sides and serve hot.'));
-
+    // Add all predefined recipes
+    this.addPredefinedRecipes();
     // Test values
     this.addIngridientToRecipe('Pancakes', this.testIngridient, 1);
     this.addIngridientToRecipe('Pancakes', this.testIngridient1, 2);
     this.addIngridientToRecipe('Pancakes', this.testIngridient2, 200);
+    this.addIngridientToRecipe('Vodka', this.testIngridient3, '1.000');
     this.printRecipeList();
-    this.addPredefinedRecipes();
+
 
   }
 

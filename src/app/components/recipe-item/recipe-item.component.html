@@ -16,12 +16,15 @@
               <mat-divider style="width: 80%"></mat-divider>
               <p mat-line>{{ing.name}}</p>
               <p mat-line>{{ing.unit}}</p>
-              <h3 matLine class="amount">x{{ing.amount}} {{ing.unit}}</h3>
+              <h3 matLine class="amount" *ngIf="ing.unit.toString() === 'Gramm'; else normal">x{{ing.amount}} g</h3>
+              <ng-template #normal>
+                <h3 matLine class="amount">x{{ing.amount}} {{ing.unit}}</h3>
+              </ng-template>
             </mat-list-item>
           </ng-container>
         </div>
       </mat-list>
-      <p class="description">
+      <p class="description" style="white-space: pre-line;">
         <mat-divider id="divider"></mat-divider>
         {{this.dataService.recipeItem.description}}
       </p>

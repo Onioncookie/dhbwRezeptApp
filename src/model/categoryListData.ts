@@ -10,6 +10,7 @@ export class CategoryListData {
     this.categoryList.push(new Category('Fruits'));
     this.categoryList.push(new Category('Dairy Products'));
     this.categoryList.push(new Category('Dry Assortment'));
+    this.categoryList.push(new Category('Alcoholic Beverages'));
   }
 }
 
