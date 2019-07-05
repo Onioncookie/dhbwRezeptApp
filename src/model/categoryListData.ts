@@ -1,5 +1,4 @@
 import {Category} from './category';
-import {DataServiceService} from '../app/data-service.service';
 
 export class CategoryListData {
   categoryList: Category[] = [];

@@ -2,20 +2,18 @@
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-areas:
-  "h"
-  "b";
-}
-#toolbarFirst {
-  display: grid;
-  grid-template-areas:
-    "home right";
+  grid-template-rows: min-content 1fr;
 }
 
 #toolbarContainer {
   display: grid;
-  height: max-content;
   width: 100%;
+  height: min-content;
+}
+
+#toolbarFirst {
+  display: grid;
+  grid-template-areas: "home right";
 }
 
 #leftButtons {

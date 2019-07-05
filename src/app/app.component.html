@@ -8,7 +8,8 @@
       </div>
       <div id="rightButtons">
         <button mat-button>
-          <mat-icon svgIcon="blender"></mat-icon>
+          <mat-icon svgIcon="blender" (click)="this.dataService
+          .addIngridientToCategoryList(this.dataService.testIngridient)"></mat-icon>
         </button>
         <button mat-button>
           <mat-icon svgIcon="shoppingCart"></mat-icon>

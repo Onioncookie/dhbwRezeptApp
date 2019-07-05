@@ -3,14 +3,15 @@ import {Recipe} from '../model/recipe';
 import {Ingridient} from '../model/ingridient';
 import {Category} from '../model/category';
 import {CategoryListData} from '../model/categoryListData';
-import {forEach} from '@angular/router/src/utils/collection';
 import {IngridientListData} from '../model/ingridientListData';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
-  recipeList: Recipe[];
+  recipeList: Recipe[] = [];
+  testIngridient = new Ingridient('Eggs', 'Eggs and Egg productss', 'pcs');
+  testRecipe = new Recipe('TestRecipe', 'testURL', 'Bla');
   // Contains all Ingridients,sorted by their Category
   categoryList = new CategoryListData();
   // First import of all ingridients
@@ -19,27 +20,40 @@ export class DataServiceService {
   constructor() {
     // First sort for the categoryList, as the recipeListData is not sorted
     this.sortIngridientCategoryList();
-    console.log();
+    this.addRecipe(this.testRecipe);
+    this.printRecipeList();
+  }
+  // Recipe Functions
+  addRecipe(recipe: Recipe) {
+    this.recipeList.push(recipe);
+  }
+  printRecipeList() {
+    this.recipeList.forEach(value => console.log(value));
   }
 
   printCategoryList() {
     this.categoryList.categoryList.forEach(value => console.log(value));
   }
-
+  addIngridientToRecipe(ingridient: Ingridient) {
+  }
+// Category Functions
   addCategory(mCategory: Category) {
     this.categoryList.categoryList.push(mCategory);
     this.sortIngridientCategoryList();
   }
 
   addIngridientToCategoryList(mIngridient: Ingridient) {
-    this.categoryList.categoryList.forEach(value => {
+    let found = false;
+    for (const value of this.categoryList.categoryList) {
       if (value.name === mIngridient.category) {
         value.ingridientList.push(mIngridient);
+        found = true;
         return;
-      } else {
-        console.log('Error addIngridientToCategoryList, could not find ', mIngridient.category);
       }
-    });
+    }
+    if (!found) {
+      console.log('Error could not find Category ', mIngridient.name);
+    }
   }
 
 // Sorts the CategoryList Array alphabetically for a future use and display
