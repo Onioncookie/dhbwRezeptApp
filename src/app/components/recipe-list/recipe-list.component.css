@@ -16,6 +16,7 @@
 
 #image {
   margin-top: 1%;
+  max-height: 350px;
 }
 .icons {
   transform: scale(1.5);
@@ -27,7 +28,6 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     margin: 2%;
-    grid-gap: 5%;
     justify-items: center;
   }
   .icons {

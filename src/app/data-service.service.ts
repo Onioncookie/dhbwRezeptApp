@@ -5,6 +5,7 @@ import {Category} from '../model/category';
 import {CategoryListData} from '../model/categoryListData';
 import {IngridientListData} from '../model/ingridientListData';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {RecipeListData} from '../model/recipeListData';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,12 @@ export class DataServiceService {
   testIngridient = new Ingridient('Eggs', 'Eggs and Egg products', 'pcs');
   testIngridient1 = new Ingridient('XXL Eggs', 'Eggs and Egg products', 'pcs');
   testIngridient2 = new Ingridient('Flour', 'Baked Goods', 'Gramm');
-  testRecipe = new Recipe('TestRecipe', 'testURL', 'Bla');
   // Contains all Ingridients,sorted by their Category
   categoryList = new CategoryListData();
   // First import of all ingridients
   ingridientList = new IngridientListData();
+  // Initialisation of all predefined recipes from recipeListData model
+  predefinedRecipe = new RecipeListData();
   // Output Value from recipeList component => used in recipeItem component
   recipeItem: any;
 
@@ -40,11 +42,9 @@ export class DataServiceService {
     this.addIngridientToRecipe('Pancakes', this.testIngridient, 1);
     this.addIngridientToRecipe('Pancakes', this.testIngridient1, 2);
     this.addIngridientToRecipe('Pancakes', this.testIngridient2, 200);
-    this.addRecipe(this.testRecipe);
-    this.addRecipe(this.testRecipe);
-    this.addRecipe(this.testRecipe);
-    this.addIngridientToRecipe('TestRecipe', this.testIngridient, 3);
     this.printRecipeList();
+    this.addPredefinedRecipes();
+
   }
 
   // Recipe Functions
@@ -53,6 +53,29 @@ export class DataServiceService {
   addRecipe(recipe: Recipe) {
     const recipeList = this.recipeListSubject.value;
     recipeList.push(recipe);
+    this.sortAllRecipesByName();
+    this.recipeListSubject.next(recipeList);
+  }
+
+  private addPredefinedRecipes() {
+    this.predefinedRecipe.recipeList.forEach(value => {
+      console.log(value.name);
+      this.addRecipe(value);
+      this.sortAllRecipesByName();
+    });
+  }
+
+  sortAllRecipesByName() {
+    const recipeList = this.recipeListSubject.value;
+    recipeList.sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      } else if (a.name < b.name) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
     this.recipeListSubject.next(recipeList);
   }
 
@@ -60,6 +83,7 @@ export class DataServiceService {
     this.recipeList.forEach(value => console.log(value));
   }
 
+  // Category functions
   printCategoryList() {
     this.categoryList.categoryList.forEach(value => console.log(value));
   }
