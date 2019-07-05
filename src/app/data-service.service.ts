@@ -14,6 +14,7 @@ export class DataServiceService {
   recipeListSubject: BehaviorSubject<Recipe[]> = new BehaviorSubject<Recipe[]>([]);
   recipeList: Observable<Recipe[]> = this.recipeListSubject.asObservable();
   testIngridient = new Ingridient('Eggs', 'Eggs and Egg products', 'pcs');
+  testIngridient1 = new Ingridient('XXL Eggs', 'Eggs and Egg products', 'pcs');
   testRecipe = new Recipe('TestRecipe', 'testURL', 'Bla');
   // Contains all Ingridients,sorted by their Category
   categoryList = new CategoryListData();
@@ -35,10 +36,12 @@ export class DataServiceService {
       ' 1/4 cup for each pancake. Brown on both sides and serve hot.'));
 
     // Test values
+    this.addIngridientToRecipe('Pancakes', this.testIngridient, 1);
+    this.addIngridientToRecipe('Pancakes', this.testIngridient1, 2);
     this.addRecipe(this.testRecipe);
     this.addRecipe(this.testRecipe);
     this.addRecipe(this.testRecipe);
-    this.addIngridientToRecipe('TestRecipe', this.testIngridient);
+    this.addIngridientToRecipe('TestRecipe', this.testIngridient, 3);
     this.printRecipeList();
   }
 
@@ -59,8 +62,9 @@ export class DataServiceService {
     this.categoryList.categoryList.forEach(value => console.log(value));
   }
 
-  addIngridientToRecipe(mRecipeName, mIngridient: Ingridient) {
+  addIngridientToRecipe(mRecipeName, mIngridient: Ingridient, mAmount) {
     const recipeList = this.recipeListSubject.value;
+    mIngridient.amount = mAmount;
     for (const recipe of recipeList) {
       // Find recipe
       if (recipe.name === mRecipeName) {

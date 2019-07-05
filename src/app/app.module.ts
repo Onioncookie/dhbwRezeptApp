@@ -9,7 +9,7 @@ import { RecipeItemComponent } from './components/recipe-item/recipe-item.compon
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { RecipeCreateComponent } from './components/recipe-create/recipe-create.component';
 import { IngredientCreateComponent } from './components/ingredient-create/ingredient-create.component';
-import {MatButtonModule, MatCardModule, MatIconModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatDividerModule, MatIconModule, MatListModule, MatToolbarModule} from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import {DataServiceService} from './data-service.service';
 
@@ -32,6 +32,8 @@ import {DataServiceService} from './data-service.service';
     MatIconModule,
     HttpClientModule,
     MatCardModule,
+    MatDividerModule,
+    MatListModule,
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]

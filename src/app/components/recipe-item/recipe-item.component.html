@@ -1,3 +1,34 @@
-<p>
-  recipe-item works!
-</p>
+<div id="pageContainer">
+  <mat-card class="mat-elevation-z8" id="card">
+    <mat-card-title>
+      {{this.dataService.recipeItem.name}}
+    </mat-card-title>
+    <mat-card-content id="cardContentContainer">
+      <img [src]="this.dataService.recipeItem.pictureUrl" class="mat-elevation-z8" alt="" id="image">
+      <mat-list class="ingridient">
+        <div *ngFor="let cat of this.dataService.recipeItem.categoryList.categoryList">
+          <ng-container *ngIf="cat.ingridientList.length != 0;">
+            <h3 mat-subheader>
+              {{cat.name}}
+            </h3>
+            <mat-list-item *ngFor="let ing of cat.ingridientList" class="itemContainer">
+              <p mat-line>{{ing.name}}</p>
+              <p mat-line>{{ing.unit}}</p>
+              <h3 matLine class="amount">x{{ing.amount}}</h3>
+            </mat-list-item>
+          </ng-container>
+        </div>
+      </mat-list>
+      <p class="description">
+        <mat-divider id="divider"></mat-divider>
+        {{this.dataService.recipeItem.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions id="buttonContainer">
+      <button mat-icon-button class="icons" id="iconLeft">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+      <button mat-icon-button class="icons" [routerLink]="['']">Back</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

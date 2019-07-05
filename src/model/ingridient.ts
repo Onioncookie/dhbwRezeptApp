@@ -4,7 +4,7 @@ export class Ingridient {
   unit; string;
   amount: string;
   constructor(mName, mCategory, mUnit) {
-    this.name = name;
+    this.name = mName;
     this.category = mCategory;
     this.unit = mUnit;
   }

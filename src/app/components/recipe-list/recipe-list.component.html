@@ -2,14 +2,16 @@
   <mat-card class="cards mat-elevation-z8" *ngFor="let recipe of recipeList">
     <mat-card-title>{{recipe.name}}</mat-card-title>
     <mat-card-content id="cardContent">
-      <img mat-card-image [src]="recipe.pictureUrl" alt="" width="100%" id="image">
+      <img mat-card-image [src]="recipe.pictureUrl" alt="" width="100%"
+           class="mat-elevation-z8" id="image">
     </mat-card-content>
     <mat-card-actions id="buttonContainer">
       <button mat-icon-button class="icons" id="iconLeft">
         <mat-icon>add_shopping_cart</mat-icon>
       </button>
       <button mat-icon-button class="icons"
-              (click)="this.dataService.recipeItem">
+              (click)="this.dataService.recipeItem = recipe;"
+              [routerLink]="['RecipeItem']">
         <mat-icon>library_books</mat-icon>
       </button>
     </mat-card-actions>

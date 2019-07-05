@@ -1,0 +1,41 @@
+#pageContainer {
+  display: grid;
+  margin: 2%;
+  justify-items: center;
+}
+
+#card {
+}
+
+#image {
+  width: 100%;
+  grid-area: picture;
+}
+
+#cardContentContainer {
+  display: grid;
+  grid-template-areas: "ing picture" "text text";
+}
+
+
+.description {
+  display: grid;
+  margin-top: 2%;
+  grid-area: text / text;
+}
+
+.ingridient {
+  grid-area: ing;
+}
+.amount {
+  font-size: 40px !important;
+  margin-left: 30% !important;
+}
+
+#divider {
+  margin-bottom: 2%;
+  position: unset !important;
+  width: 80%;
+  justify-self: center;
+}
+

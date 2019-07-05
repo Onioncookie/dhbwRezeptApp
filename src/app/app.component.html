@@ -3,13 +3,12 @@
     <mat-toolbar-row id="toolbarFirst">
       <div id="leftButtons">
         <button mat-button>
-          <mat-icon svgIcon="recipeMenu" (click)="this.dataService.printCategoryList()"></mat-icon>
+          <mat-icon svgIcon="recipeMenu" [routerLink]="['']"></mat-icon>
         </button>
       </div>
       <div id="rightButtons">
         <button mat-button>
-          <mat-icon svgIcon="blender" (click)="this.dataService
-          .addIngridientToCategoryList(this.dataService.testIngridient)"></mat-icon>
+          <mat-icon svgIcon="blender"></mat-icon>
         </button>
         <button mat-button>
           <mat-icon svgIcon="shoppingCart"></mat-icon>
