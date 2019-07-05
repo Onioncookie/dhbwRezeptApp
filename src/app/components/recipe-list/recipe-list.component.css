@@ -2,11 +2,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, max-content);
-  margin: 2%;
-  grid-gap: 5%;
+  grid-gap: 3%;
 }
 .cards {
-  width: 90%;
+  margin: 3%;
 }
 
 #buttonContainer {
@@ -30,9 +29,6 @@
     margin: 2%;
     grid-gap: 5%;
     justify-items: center;
-  }
-  .cards {
-    width: 90%;
   }
   .icons {
     transform: scale(1.8);

@@ -3,8 +3,9 @@
     <mat-card-title>
       {{this.dataService.recipeItem.name}}
     </mat-card-title>
+    <mat-divider id="topDivider" style="border-top-width: 3px; width: 30%"></mat-divider>
     <mat-card-content id="cardContentContainer">
-      <img [src]="this.dataService.recipeItem.pictureUrl" class="mat-elevation-z8" alt="" id="image">
+      <img mat-card-image [src]="this.dataService.recipeItem.pictureUrl" class="mat-elevation-z8" alt="" id="image">
       <mat-list class="ingridient">
         <div *ngFor="let cat of this.dataService.recipeItem.categoryList.categoryList">
           <ng-container *ngIf="cat.ingridientList.length != 0;">
@@ -12,9 +13,10 @@
               {{cat.name}}
             </h3>
             <mat-list-item *ngFor="let ing of cat.ingridientList" class="itemContainer">
+              <mat-divider style="width: 80%"></mat-divider>
               <p mat-line>{{ing.name}}</p>
               <p mat-line>{{ing.unit}}</p>
-              <h3 matLine class="amount">x{{ing.amount}}</h3>
+              <h3 matLine class="amount">x{{ing.amount}} {{ing.unit}}</h3>
             </mat-list-item>
           </ng-container>
         </div>

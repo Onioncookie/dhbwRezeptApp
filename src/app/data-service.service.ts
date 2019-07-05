@@ -15,6 +15,7 @@ export class DataServiceService {
   recipeList: Observable<Recipe[]> = this.recipeListSubject.asObservable();
   testIngridient = new Ingridient('Eggs', 'Eggs and Egg products', 'pcs');
   testIngridient1 = new Ingridient('XXL Eggs', 'Eggs and Egg products', 'pcs');
+  testIngridient2 = new Ingridient('Flour', 'Baked Goods', 'Gramm');
   testRecipe = new Recipe('TestRecipe', 'testURL', 'Bla');
   // Contains all Ingridients,sorted by their Category
   categoryList = new CategoryListData();
@@ -38,6 +39,7 @@ export class DataServiceService {
     // Test values
     this.addIngridientToRecipe('Pancakes', this.testIngridient, 1);
     this.addIngridientToRecipe('Pancakes', this.testIngridient1, 2);
+    this.addIngridientToRecipe('Pancakes', this.testIngridient2, 200);
     this.addRecipe(this.testRecipe);
     this.addRecipe(this.testRecipe);
     this.addRecipe(this.testRecipe);

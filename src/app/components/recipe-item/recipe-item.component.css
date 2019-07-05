@@ -4,12 +4,10 @@
   justify-items: center;
 }
 
-#card {
-}
-
 #image {
-  width: 100%;
+  width: 60%;
   grid-area: picture;
+  justify-self: center;
 }
 
 #cardContentContainer {
@@ -28,8 +26,8 @@
   grid-area: ing;
 }
 .amount {
-  font-size: 40px !important;
-  margin-left: 30% !important;
+  font-size: 2em !important;
+  margin-left: 50% !important;
 }
 
 #divider {
@@ -38,4 +36,51 @@
   width: 80%;
   justify-self: center;
 }
+#buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0;
+  margin-right: 3%;
+}
 
+.icons {
+  transform: scale(1.5);
+}
+
+#iconLeft {
+  margin-right: 3%;
+}
+
+@media (max-device-width: 500px) {
+  #cardContentContainer {
+    display: grid;
+    grid-template-areas:
+      "picture"
+      "ing"
+      "text";
+  }
+  #card {
+    margin: 3%;
+  }
+  #image {
+    width: 100%;
+    grid-area: picture;
+    justify-self: center;
+  }
+  .description {
+    display: grid;
+    margin-top: 8%;
+    grid-area: text / text;
+  }
+  .amount {
+    font-size: 1.5em !important;
+    margin-left: 35% !important;
+  }
+  #topDivider {
+    display: none;
+  }
+  .mat-card-image:first-child {
+    margin-top: 0;
+  }
+
+}
