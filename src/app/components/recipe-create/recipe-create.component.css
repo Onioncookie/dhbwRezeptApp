@@ -1,0 +1,19 @@
+#card {
+  margin: 3%;
+}
+
+#cardContentContainer {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+
+#formContainer {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+
+.inputField {
+  width: 50%
+}

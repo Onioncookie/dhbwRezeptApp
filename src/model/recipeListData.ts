@@ -35,12 +35,11 @@ export class RecipeListData {
       'https://cdn.pixabay.com/photo/2018/06/16/05/55/vodka-3478224_960_720.jpg',
       'Just Vodka.'));
     this.recipeList.push(new Recipe('Pancakes',
-      'https://www.maxpixel.net/static/photo/1x/Syrup-Pancakes-Breakfast-Maple-Food-Sweet-2291908.jpg',
+      'https://cdn.pixabay.com/photo/2017/05/07/08/56/pancakes-2291908_960_720.jpg',
       'In a large bowl, sift together the flour, baking powder, salt and sugar. Make a well in the center and pour in the milk,' +
       ' egg and melted butter; mix until smooth.\n' +
       'Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using approximately' +
       ' 1/4 cup for each pancake. Brown on both sides and serve hot.'));
-
   }
 
 

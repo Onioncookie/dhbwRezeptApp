@@ -54,10 +54,9 @@ export class DataServiceService {
 
   private addPredefinedRecipes() {
     this.predefinedRecipe.recipeList.forEach(value => {
-      console.log(value.name);
       this.addRecipe(value);
-      this.sortAllRecipesByName();
     });
+    this.sortAllRecipesByName();
   }
 
   sortAllRecipesByName() {

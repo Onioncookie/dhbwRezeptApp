@@ -1,4 +1,25 @@
 <div id="pageContainer">
-  <mat-card>
+  <mat-card id="card">
+    <mat-card-content>
+      <div id="cardContentContainer">
+        <h1>Add Recipe</h1>
+        <form id="formContainer">
+        <mat-form-field class="inputField">
+          <input matInput type="text" placeholder="Name">
+        </mat-form-field>
+        <mat-form-field class="inputField">
+          <input matInput type="text" placeholder="Url Picture Link">
+        </mat-form-field>
+        <mat-form-field class="inputField">
+          <textarea matInput type="text" placeholder="Description"></textarea>
+        </mat-form-field>
+        <button mat-button>Add</button>
+        <button mat-button [routerLink]="['']">Cancel</button>
+        </form>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+
+    </mat-card-actions>
   </mat-card>
 </div>

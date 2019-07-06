@@ -12,7 +12,9 @@
 
 #cardContentContainer {
   display: grid;
-  grid-template-areas: "ing picture" "text text";
+  grid-template-areas:
+    "ing picture"
+    "text text";
 }
 .mat-list-base .mat-list-item .mat-line {
   overflow: visible;
