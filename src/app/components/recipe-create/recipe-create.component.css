@@ -17,3 +17,16 @@
 .inputField {
   width: 50%
 }
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.radioButton {
+  margin: 1%;
+}
+
+#secondPanel {
+  margin-top: 1%;
+}

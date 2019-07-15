@@ -11,15 +11,16 @@ import { RecipeCreateComponent } from './components/recipe-create/recipe-create.
 import { IngredientCreateComponent } from './components/ingredient-create/ingredient-create.component';
 import {
   MatButtonModule,
-  MatCardModule,
-  MatDividerModule,
+  MatCardModule, MatCheckboxModule,
+  MatDividerModule, MatExpansionModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatRadioModule,
   MatToolbarModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import {DataServiceService} from './data-service.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -43,6 +44,11 @@ import {DataServiceService} from './data-service.service';
     MatDividerModule,
     MatListModule,
     MatInputModule,
+    MatExpansionModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    ReactiveFormsModule,
   ],
   providers: [DataServiceService],
   bootstrap: [AppComponent]

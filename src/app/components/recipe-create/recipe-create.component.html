@@ -3,23 +3,62 @@
     <mat-card-content>
       <div id="cardContentContainer">
         <h1>Add Recipe</h1>
-        <form id="formContainer">
+        <form [formGroup]="entireForm" id="formContainer">
         <mat-form-field class="inputField">
-          <input matInput type="text" placeholder="Name">
+          <input matInput type="text" placeholder="Name" formControlName="nameForm">
         </mat-form-field>
         <mat-form-field class="inputField">
-          <input matInput type="text" placeholder="Url Picture Link">
+          <input matInput type="text" placeholder="Url Picture Link" formControlName="pictureForm">
         </mat-form-field>
+          <div style="width: 50%;">
+            <mat-accordion>
+              <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Category
+                </mat-panel-title>
+                <mat-panel-description>
+                  Choose a Category
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+                <div class="categoryContainer">
+                  <mat-radio-group
+                    class="radioGroup">
+                    <mat-radio-button class="radioButton" (click)="this.clickedCategory = cat.name;" [value]="cat" *ngFor="let cat of allCategories.categoryList">
+                      {{cat.name}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </div>
+            </mat-expansion-panel>
+              <mat-expansion-panel id="secondPanel">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Unit
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Choose a Unit
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="categoryContainer">
+                  <mat-radio-group
+                    class="radioGroup">
+                    <mat-radio-button class="radioButton" (click)="this.clickedUnit = unit;" [value]="unit" *ngFor="let unit of allUnits">
+                      {{unit}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
         <mat-form-field class="inputField">
-          <textarea matInput type="text" placeholder="Description"></textarea>
+          <textarea matInput type="text" placeholder="Description" formControlName="descriptionForm"></textarea>
         </mat-form-field>
-        <button mat-button>Add</button>
+        <button mat-button (click)="createRecipe()">Add</button>
         <button mat-button [routerLink]="['']">Cancel</button>
         </form>
       </div>
     </mat-card-content>
     <mat-card-actions>
-
     </mat-card-actions>
   </mat-card>
 </div>
