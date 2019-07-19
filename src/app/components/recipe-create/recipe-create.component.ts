@@ -9,8 +9,12 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./recipe-create.component.css']
 })
 export class RecipeCreateComponent implements OnInit {
+  // Get All Categories from Dataservice
   allCategories = this.dataService.categoryList;
+  // Save currently clicked Category and choosen unit
   clickedCategory;
+  clickedUnit: string;
+  /// Predefined units, will be applied to the newly added ingredient
   allUnits = [
     'mL',
     'Gramm',
@@ -18,7 +22,7 @@ export class RecipeCreateComponent implements OnInit {
     'Pieces',
     'Litre',
   ];
-  clickedUnit: string;
+  // Formgroup for userinput, used to grab the new Recipe details
   entireForm = new FormGroup({
     nameForm: new FormControl(''),
     pictureForm: new FormControl(''),
