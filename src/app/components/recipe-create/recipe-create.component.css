@@ -14,6 +14,59 @@
   width: 100%;
 }
 
+#ingredientFormContainer {
+  display: grid;
+  grid-template-areas: "drop catname" "drop unitname" "text amount" "empty button";
+  width: 50%;
+}
+
+#textBottomLeft {
+  grid-area: text;
+  width: 100%;
+}
+
+#submitIngredientButton {
+  grid-area: button;
+  width: 25%;
+  justify-self: center;
+}
+
+.cardText {
+  padding: 0 24px;
+  height: 48px;
+  vertical-align: middle;
+  line-height: 48px;
+  margin-top: 2px;
+}
+
+#inputField {
+  grid-area: amount;
+  width: 50%;
+  justify-self: center;
+}
+
+.cards {
+  width: 40%;
+  height: 17px;
+  margin: 1px;
+  justify-self: center;
+  text-align: center;
+}
+
+#catName {
+  grid-area: catname;
+  text-align: center;
+}
+
+#unitName {
+  grid-area: unitname;
+  text-align: center;
+}
+
+#dropDown {
+  grid-area: drop;
+}
+
 .inputField {
   width: 50%
 }
@@ -21,6 +74,12 @@
 .radioGroup {
   display: flex;
   flex-direction: column;
+}
+
+.addIngredientFab {
+  transition: none !important;
+  box-shadow: none !important;
+  font-size: 1em;
 }
 
 .radioButton {

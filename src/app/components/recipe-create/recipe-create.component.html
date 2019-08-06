@@ -4,32 +4,36 @@
       <div id="cardContentContainer">
         <h1>Add Recipe</h1>
         <form [formGroup]="entireForm" id="formContainer">
-        <mat-form-field class="inputField">
-          <input matInput type="text" placeholder="Name" formControlName="nameForm">
-        </mat-form-field>
-        <mat-form-field class="inputField">
-          <input matInput type="text" placeholder="Url Picture Link" formControlName="pictureForm">
-        </mat-form-field>
-          <div style="width: 50%;">
-            <mat-accordion>
+          <mat-form-field class="inputField">
+            <input matInput type="text" placeholder="Name" formControlName="nameForm">
+          </mat-form-field>
+          <mat-form-field class="inputField">
+            <input matInput type="text" placeholder="Url Picture Link" formControlName="pictureForm">
+          </mat-form-field>
+          <mat-form-field class="inputField">
+            <textarea matInput type="text" placeholder="Description" formControlName="descriptionForm"></textarea>
+          </mat-form-field>
+          <div id="ingredientFormContainer">
+            <mat-accordion id="dropDown">
               <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Category
-                </mat-panel-title>
-                <mat-panel-description>
-                  Choose a Category
-                </mat-panel-description>
-              </mat-expansion-panel-header>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Category
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Choose a Category
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
                 <div class="categoryContainer">
                   <mat-radio-group
                     class="radioGroup">
-                    <mat-radio-button class="radioButton" (click)="this.clickedCategory = cat.name;" [value]="cat" *ngFor="let cat of allCategories.categoryList">
+                    <mat-radio-button class="radioButton" (click)="this.clickedCategory = cat.name; categorySelected = true" [value]="cat"
+                                      *ngFor="let cat of allCategories.categoryList">
                       {{cat.name}}
                     </mat-radio-button>
                   </mat-radio-group>
                 </div>
-            </mat-expansion-panel>
+              </mat-expansion-panel>
               <mat-expansion-panel id="secondPanel">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
@@ -42,19 +46,55 @@
                 <div class="categoryContainer">
                   <mat-radio-group
                     class="radioGroup">
-                    <mat-radio-button class="radioButton" (click)="this.clickedUnit = unit;" [value]="unit" *ngFor="let unit of allUnits">
+                    <mat-radio-button class="radioButton" (click)="this.clickedUnit = unit; this.unitSelected = true" [value]="unit"
+                                      *ngFor="let unit of allUnits">
                       {{unit}}
                     </mat-radio-button>
                   </mat-radio-group>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
+            <div id="catName" *ngIf="categorySelected; then button; else emptyButton">
+
+            </div>
+            <div id="unitName" *ngIf="unitSelected; then buttonUnit; else emptyButton">
+              <h3>{{this.clickedUnit}}</h3>
+            </div>
+            <div id="textBottomLeft">
+              <mat-card class="cardText mat-elevation-z2">
+                Enter Amount:
+              </mat-card>
+            </div>
+            <mat-form-field id="inputField" appearance="fill">
+              <label>
+                <input matInput type="text" placeholder="Amount" formControlName="amountForm">
+              </label>
+            </mat-form-field>
+            <button mat-raised-button color="primary" id="submitIngredientButton">Submit</button>
           </div>
-        <mat-form-field class="inputField">
-          <textarea matInput type="text" placeholder="Description" formControlName="descriptionForm"></textarea>
-        </mat-form-field>
-        <button mat-button (click)="createRecipe()">Add</button>
-        <button mat-button [routerLink]="['']">Cancel</button>
+          <ng-template #button>
+            <mat-card class="cards mat-elevation-z2">{{this.clickedCategory}}</mat-card>
+          </ng-template>
+          <ng-template #buttonUnit>
+            <mat-card  class="cards mat-elevation-z2">{{this.clickedUnit}}</mat-card>
+          </ng-template>
+          <ng-template #emptyButton>
+            <mat-card class="cards mat-elevation-z2"></mat-card>
+          </ng-template>
+          <div id="ingredientContainer">
+            <mat-list>
+              <h3 mat-subheader>Ingredients</h3>
+              <mat-list-item>
+                <mat-icon mat-list-icon>
+                  <mat-icon svgIcon="blender"></mat-icon>
+                </mat-icon>
+                <h4 mat-line>
+                </h4>
+              </mat-list-item>
+            </mat-list>
+          </div>
+          <button mat-button (click)="createRecipe()">Add</button>
+          <button mat-button [routerLink]="['']">Cancel</button>
         </form>
       </div>
     </mat-card-content>

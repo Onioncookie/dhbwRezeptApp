@@ -28,6 +28,8 @@ export class RecipeCreateComponent implements OnInit {
     pictureForm: new FormControl(''),
     descriptionForm: new FormControl('')
   });
+  categorySelected = false;
+  unitSelected = false;
 
   constructor(private dataService: DataServiceService) { }
 
