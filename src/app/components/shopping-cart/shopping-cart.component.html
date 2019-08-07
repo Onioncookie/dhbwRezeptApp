@@ -1,8 +1,14 @@
 <div id="pageContainer">
-  <mat-card>
-    <div id="cardContentContainer">
-      <mat-card-content>
-
+  <mat-card id="mainCardContainer">
+    <div>
+      <h1 style="text-align: center">Shopping List</h1>
+      <mat-card-content id="cardContentContainer">
+        <mat-list>
+          <mat-list-item *ngFor="let ing of dataService.shoppingCartList | async">
+            <p>{{ing.name}} x {{ing.amount}}</p>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
       </mat-card-content>
     </div>
     <mat-card-actions></mat-card-actions>

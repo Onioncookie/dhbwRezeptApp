@@ -14,10 +14,9 @@ export class DataServiceService {
   // Observable for recipeList
   recipeListSubject: BehaviorSubject<Recipe[]> = new BehaviorSubject<Recipe[]>([]);
   recipeList: Observable<Recipe[]> = this.recipeListSubject.asObservable();
-  testIngridient = new Ingridient('Eggs', 'Eggs and Egg products', 'pcs');
-  testIngridient1 = new Ingridient('XXL Eggs', 'Eggs and Egg products', 'pcs');
-  testIngridient2 = new Ingridient('Flour', 'Baked Goods', 'Gramm');
-  testIngridient3 = new Ingridient('Vokda', 'Alcoholic Beverages', 'mL');
+  // Obserable for the shoppingcart
+  shoppingCartSubject: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+  shoppingCartList: Observable<Recipe[]> = this.shoppingCartSubject.asObservable();
   // Contains all Ingridients,sorted by their Category
   categoryList = new CategoryListData();
   // First import of all ingridients
@@ -25,7 +24,14 @@ export class DataServiceService {
   // Initialisation of all predefined recipes from recipeListData model
   predefinedRecipe = new RecipeListData();
   // Output Value from recipeList component => used in recipeItem component
-  recipeItem: any;
+  recipeItem: Recipe;
+
+
+  // Some random Ingredients to add to predefined Recipes
+  testIngridient = new Ingridient('Eggs', 'Eggs and Egg products', 'pcs');
+  testIngridient1 = new Ingridient('XXL Eggs', 'Eggs and Egg products', 'pcs');
+  testIngridient2 = new Ingridient('Flour', 'Baked Goods', 'Gramm');
+  testIngridient3 = new Ingridient('Vokda', 'Alcoholic Beverages', 'mL');
 
   constructor() {
     // Initial sort for the categoryList, as the recipeListData is not sorted
@@ -77,11 +83,6 @@ export class DataServiceService {
     this.recipeList.forEach(value => console.log(value));
   }
 
-  // Category functions
-  printCategoryList() {
-    this.categoryList.categoryList.forEach(value => console.log(value));
-  }
-
   addIngridientToRecipe(mRecipeName, mIngridient: Ingridient, mAmount) {
     const recipeList = this.recipeListSubject.value;
     mIngridient.amount = mAmount;
@@ -111,6 +112,9 @@ export class DataServiceService {
   addCategory(mCategory: Category) {
     this.categoryList.categoryList.push(mCategory);
     this.sortIngridientCategoryList();
+  }
+  printCategoryList() {
+    this.categoryList.categoryList.forEach(value => console.log(value));
   }
 
   addIngridientToCategoryList(mIngridient: Ingridient) {

@@ -30,7 +30,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions id="buttonContainer">
-      <button mat-icon-button class="icons" id="iconLeft">
+      <button mat-icon-button class="icons" id="iconLeft" (click)="addRecipeToCart(this.dataService.recipeItem)">
         <mat-icon>add_shopping_cart</mat-icon>
       </button>
       <button mat-icon-button class="icons" [routerLink]="['']">Back</button>

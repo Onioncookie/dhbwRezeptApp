@@ -1,0 +1,14 @@
+#pageContainer {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+
+#cardContentContainer {
+  display: grid;
+  justify-items: center;
+}
+
+#mainCardContainer {
+  width: 90%;
+}
