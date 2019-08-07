@@ -6,7 +6,8 @@
            class="mat-elevation-z8" id="image">
     </mat-card-content>
     <mat-card-actions id="buttonContainer">
-      <button mat-icon-button class="icons" id="iconLeft">
+      <button mat-icon-button class="icons" id="iconLeft"
+              (click)="this.dataService.addRecipeToCart(recipe)">
         <mat-icon>add_shopping_cart</mat-icon>
       </button>
       <button mat-icon-button class="icons"
