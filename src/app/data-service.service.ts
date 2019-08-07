@@ -42,7 +42,8 @@ export class DataServiceService {
     this.addIngridientToRecipe('Pancakes', this.testIngridient, 1);
     this.addIngridientToRecipe('Pancakes', this.testIngridient1, 2);
     this.addIngridientToRecipe('Pancakes', this.testIngridient2, 200);
-    this.addIngridientToRecipe('Vodka', this.testIngridient3, '1.000');
+    this.addIngridientToRecipe('Vodka', this.testIngridient3, 1000);
+    this.addIngridientToRecipe('Cookies', this.testIngridient, 4);
     this.printRecipeList();
 
 
@@ -172,10 +173,12 @@ export class DataServiceService {
           if (this.searchDuplicateCart(ing)) {
             for (const cartIng of cart) {
               if (cartIng.name === ing.name) {
-                cartIng.amount += ing.amount;
+                const value = Number(cartIng.amountCart);
+                cartIng.amountCart += ing.amount;
               }
             }
           } else {
+            ing.amountCart = ing.amount;
             cart.push(ing);
           }
         }

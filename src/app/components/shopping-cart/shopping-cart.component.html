@@ -5,7 +5,7 @@
       <mat-card-content id="cardContentContainer">
         <mat-list>
           <mat-list-item *ngFor="let ing of dataService.shoppingCartList | async">
-            <p>{{ing.name}} x {{ing.amount}}</p>
+            <p>{{ing.name}} x {{ing.amountCart}} {{ing.unit}}</p>
             <mat-divider></mat-divider>
           </mat-list-item>
         </mat-list>
