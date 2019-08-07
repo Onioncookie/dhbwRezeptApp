@@ -1,6 +1,6 @@
-import {Ingridient} from './ingridient';
+ import {Ingridient} from './ingridient';
 
-export class IngridientListData {
+ export class IngridientListData {
   ingridientList: Ingridient[] = [];
   constructor() {
     this.ingridientList.push(new Ingridient('Flour', 'Baked Goods', 'Gramm'));

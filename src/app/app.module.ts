@@ -21,6 +21,7 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import {DataServiceService} from './data-service.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AddRecipeTESTNOTINCLUDEDComponent } from './components/add-recipe-testnotincluded/add-recipe-testnotincluded.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ShoppingCartComponent,
     RecipeCreateComponent,
     IngredientCreateComponent,
+    AddRecipeTESTNOTINCLUDEDComponent,
   ],
   imports: [
     BrowserModule,

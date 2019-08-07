@@ -18,47 +18,65 @@
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    Ingridient:
+                    Category
                   </mat-panel-title>
                   <mat-panel-description>
-                    Choose a ingredient
+                    Choose a Category
                   </mat-panel-description>
                 </mat-expansion-panel-header>
                 <div class="categoryContainer">
                   <mat-radio-group
                     class="radioGroup">
-                    <mat-radio-button class="radioButton"
-                                      (click)="this.clickedIngredient = ing.name;
-                                      ingredientSelected = true;
-                                      currentIngredientSelected = ing"
-                                      [value]="ing"
-                                      *ngFor="let ing of ingredientList.ingridientList">
-                      <h4>{{ing.name}}</h4>
-                      <p style="font-style: italic">{{ing.unit}}</p>
+                    <mat-radio-button class="radioButton" (click)="this.clickedCategory = cat.name; categorySelected = true" [value]="cat"
+                                      *ngFor="let cat of allCategories.categoryList">
+                      {{cat.name}}
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </mat-expansion-panel>
+              <mat-expansion-panel id="secondPanel">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Unit
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Choose a Unit
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="categoryContainer">
+                  <mat-radio-group
+                    class="radioGroup">
+                    <mat-radio-button class="radioButton" (click)="this.clickedUnit = unit; this.unitSelected = true" [value]="unit"
+                                      *ngFor="let unit of allUnits">
+                      {{unit}}
                     </mat-radio-button>
                   </mat-radio-group>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
-            <div id="catName" *ngIf="ingredientSelected; then button; else emptyButton">
+            <div id="catName" *ngIf="categorySelected; then button; else emptyButton">
+
+            </div>
+            <div id="unitName" *ngIf="unitSelected; then buttonUnit; else emptyButton">
+              <h3>{{this.clickedUnit}}</h3>
             </div>
             <div id="textBottomLeft">
               <mat-card class="cardText mat-elevation-z2">
                 Enter Amount:
               </mat-card>
             </div>
-            <mat-form-field id="inputField">
+            <mat-form-field id="inputField" appearance="fill">
               <label>
-                <input matInput type="text" placeholder="Amount" [(ngModel)]="amountForm"
-                       [ngModelOptions]="{standalone: true}">
+                <input matInput type="text" placeholder="Amount" formControlName="amountForm">
               </label>
             </mat-form-field>
-            <button mat-raised-button color="primary" id="submitIngredientButton"
-                    (click)="addIngredientLocalArray(currentIngredientSelected, amountForm)">Add
-            </button>
+            <button mat-raised-button color="primary" id="submitIngredientButton">Submit</button>
           </div>
           <ng-template #button>
-            <mat-card class="cards mat-elevation-z2">{{this.clickedIngredient}}</mat-card>
+            <mat-card class="cards mat-elevation-z2">{{this.clickedCategory}}</mat-card>
+          </ng-template>
+          <ng-template #buttonUnit>
+            <mat-card  class="cards mat-elevation-z2">{{this.clickedUnit}}</mat-card>
           </ng-template>
           <ng-template #emptyButton>
             <mat-card class="cards mat-elevation-z2"></mat-card>
@@ -66,11 +84,12 @@
           <div id="ingredientContainer">
             <mat-list>
               <h3 mat-subheader>Ingredients</h3>
-              <mat-list-item *ngFor="let ing of this.listIngredientsToAdd">
+              <mat-list-item>
                 <mat-icon mat-list-icon>
                   <mat-icon svgIcon="blender"></mat-icon>
                 </mat-icon>
-                <p>{{ing.name}} x {{ing.amount}}{{ing.unit}}</p>
+                <h4 mat-line>
+                </h4>
               </mat-list-item>
             </mat-list>
           </div>
