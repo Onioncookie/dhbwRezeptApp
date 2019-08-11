@@ -2,16 +2,16 @@
   <mat-toolbar id="toolbarContainer" color="primary">
     <mat-toolbar-row id="toolbarFirst">
       <div id="leftButtons">
-        <button mat-button>
-          <mat-icon svgIcon="recipeMenu" [routerLink]="['']"></mat-icon>
+        <button mat-button [routerLink]="['']">
+          <mat-icon svgIcon="recipeMenu" ></mat-icon>
         </button>
       </div>
       <div id="rightButtons">
-        <button mat-button>
+        <button mat-button [routerLink]="['Ingredients']">
           <mat-icon svgIcon="blender"></mat-icon>
         </button>
-        <button mat-button>
-          <mat-icon svgIcon="shoppingCart" [routerLink]="['ShoppingCart']"></mat-icon>
+        <button mat-button [routerLink]="['ShoppingCart']">
+          <mat-icon svgIcon="shoppingCart"></mat-icon>
         </button>
       </div>
     </mat-toolbar-row>

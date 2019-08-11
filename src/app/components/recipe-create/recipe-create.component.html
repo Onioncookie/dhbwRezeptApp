@@ -32,7 +32,7 @@
                                       ingredientSelected = true;
                                       currentIngredientSelected = ing"
                                       [value]="ing"
-                                      *ngFor="let ing of ingredientList.ingridientList">
+                                      *ngFor="let ing of this.dataService.ingridientList.ingridientList">
                       <h4>{{ing.name}}</h4>
                       <p style="font-style: italic">{{ing.unit}}</p>
                     </mat-radio-button>

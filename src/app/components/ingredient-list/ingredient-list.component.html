@@ -1,0 +1,103 @@
+<div id="mainPageContainer">
+  <div id="cardLeftContainer">
+    <mat-card id="cardLeft">
+      <h2 class="title">Ingredients</h2>
+      <mat-list class="ingridient">
+        <div *ngFor="let cat of this.dataService.categoryList.categoryList">
+            <h3 mat-subheader>
+              {{cat.name}}
+            </h3>
+            <mat-list-item *ngFor="let ing of cat.ingridientList" class="itemContainer">
+              <mat-divider style="width: 80%"></mat-divider>
+              <p mat-line>{{ing.name}} {{ing.unit}}</p>
+              <div class="formCart">
+                <form [formGroup]="addCartForm">
+                  <label>
+                    <input matInput placeholder="Amount" formControlName="amountCartForm">
+                  </label>
+                  <button mat-raised-button (click)="addToCard(ing)">Add</button>
+                </form>
+              </div>
+            </mat-list-item>
+        </div>
+      </mat-list>
+    </mat-card>
+  </div>
+  <div id="cardRightContainer">
+    <mat-card id="cardright card">
+      <h2 class="title">Add Ingredient</h2>
+      <div id="pageContainer">
+          <mat-card-content>
+            <div id="cardContentContainer">
+              <form [formGroup]="entireForm" id="formContainer">
+                <mat-form-field class="inputField">
+                  <input matInput type="text" placeholder="Name" formControlName="nameForm">
+                </mat-form-field>
+                <div id="ingredientFormContainer">
+                  <mat-accordion id="dropDown">
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Category
+                        </mat-panel-title>
+                        <mat-panel-description>
+                          Choose a Category
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <div class="categoryContainer">
+                        <mat-radio-group
+                          class="radioGroup">
+                          <mat-radio-button class="radioButton" (click)="this.clickedCategory = cat.name; categorySelected = true" [value]="cat"
+                                            *ngFor="let cat of allCategories.categoryList">
+                            {{cat.name}}
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel id="secondPanel">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Unit
+                        </mat-panel-title>
+                        <mat-panel-description>
+                          Choose a Unit
+                        </mat-panel-description>
+                      </mat-expansion-panel-header>
+                      <div class="categoryContainer">
+                        <mat-radio-group
+                          class="radioGroup">
+                          <mat-radio-button class="radioButton" (click)="this.clickedUnit = unit; this.unitSelected = true" [value]="unit"
+                                            *ngFor="let unit of allUnits">
+                            {{unit}}
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                  <div id="catName" *ngIf="categorySelected; then button; else emptyButton">
+
+                  </div>
+                  <div id="unitName" *ngIf="unitSelected; then buttonUnit; else emptyButton">
+                    <h3>{{this.clickedUnit}}</h3>
+                  </div>
+                </div>
+                <ng-template #button>
+                  <mat-card class="cards mat-elevation-z2">{{this.clickedCategory}}</mat-card>
+                </ng-template>
+                <ng-template #buttonUnit>
+                  <mat-card  class="cards mat-elevation-z2">{{this.clickedUnit}}</mat-card>
+                </ng-template>
+                <ng-template #emptyButton>
+                  <mat-card class="cards mat-elevation-z2"></mat-card>
+                </ng-template>
+                <button mat-button (click)="addIngredient()">Add</button>
+              </form>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+          </mat-card-actions>
+      </div>
+
+    </mat-card>
+  </div>
+</div>

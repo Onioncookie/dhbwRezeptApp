@@ -40,6 +40,9 @@ export class RecipeListData {
       ' egg and melted butter; mix until smooth.\n' +
       'Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using approximately' +
       ' 1/4 cup for each pancake. Brown on both sides and serve hot.'));
+    this.recipeList.push((new Recipe('All Ingredients',
+      'https://www.backenmachtgluecklich.de/media/2015/06/Backen-Backzutaten-FAQ-730x394.jpg',
+      '')));
   }
 
 

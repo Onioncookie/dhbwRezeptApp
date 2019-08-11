@@ -7,7 +7,8 @@
     </mat-card-content>
     <mat-card-actions id="buttonContainer">
       <button mat-icon-button class="icons" id="iconLeft"
-              (click)="this.dataService.addRecipeToCart(recipe)">
+              (click)="this.dataService.addRecipeToCart(recipe)"
+              *ngIf="recipe.name !== 'All Ingredients'">
         <mat-icon>add_shopping_cart</mat-icon>
       </button>
       <button mat-icon-button class="icons"

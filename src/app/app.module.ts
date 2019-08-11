@@ -21,7 +21,9 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import {DataServiceService} from './data-service.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AddRecipeTESTNOTINCLUDEDComponent } from './components/add-recipe-testnotincluded/add-recipe-testnotincluded.component';
+import { AddRecipeTESTNOTINCLUDEDComponent } from './components/Backlog, might add if bored/add-recipe-testnotincluded/add-recipe-testnotincluded.component';
+import { IngredientListComponent } from './components/ingredient-list/ingredient-list.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { AddRecipeTESTNOTINCLUDEDComponent } from './components/add-recipe-testn
     RecipeCreateComponent,
     IngredientCreateComponent,
     AddRecipeTESTNOTINCLUDEDComponent,
+    IngredientListComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

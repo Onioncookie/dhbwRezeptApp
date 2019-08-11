@@ -16,10 +16,12 @@
               <mat-divider style="width: 80%"></mat-divider>
               <p mat-line>{{ing.name}}</p>
               <p mat-line>{{ing.unit}}</p>
-              <h3 matLine class="amount" *ngIf="ing.unit.toString() === 'Gramm'; else normal">x{{ing.amount}} g</h3>
-              <ng-template #normal>
-                <h3 matLine class="amount">x{{ing.amount}} {{ing.unit}}</h3>
-              </ng-template>
+              <div *ngIf="this.dataService.recipeItem.name !== 'All Ingredients'">
+                <h3 matLine class="amount" *ngIf="ing.unit.toString() === 'Gramm'; else normal">x{{ing.amount}} g</h3>
+                <ng-template #normal>
+                  <h3 matLine class="amount">x{{ing.amount}} {{ing.unit}}</h3>
+                </ng-template>
+              </div>
             </mat-list-item>
           </ng-container>
         </div>
@@ -30,7 +32,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions id="buttonContainer">
-      <button mat-icon-button class="icons" id="iconLeft"
+      <button mat-icon-button class="icons" id="iconLeft" *ngIf="this.dataService.recipeItem.name !== 'All Ingredients'"
               (click)="this.dataService.addRecipeToCart(this.dataService.recipeItem)">
         <mat-icon>add_shopping_cart</mat-icon>
       </button>

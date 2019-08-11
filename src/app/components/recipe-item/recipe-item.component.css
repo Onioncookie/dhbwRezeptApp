@@ -57,6 +57,10 @@
   margin-right: 3%;
 }
 
+#card {
+  min-width: 80%;
+}
+
 @media (max-device-width: 500px) {
   #cardContentContainer {
     display: grid;
@@ -67,6 +71,7 @@
   }
   #card {
     margin: 3%;
+    width: 90%;
   }
   #image {
     width: 100%;
